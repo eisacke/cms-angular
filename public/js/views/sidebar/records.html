@@ -3,11 +3,24 @@
 		<button class="sidebar__create" ui-sref="records.new">Create a new record</button>
 	</div>
 	<div class="sidebar__bottom">
+		<div class="sidebar__search">
+			<div class="sidebar__records-header">
+				<p>SEARCH</p>
+			</div>
+			<div class="sidebar__search-field">
+				<label>All</label>
+				<input type="text" name="type" ng-model="searchRecord.$">
+			</div>
+			<div class="sidebar__search-field">
+				<label>Title</label>
+				<input type="text" name="title" ng-model="searchRecord.title">
+			</div>
+		</div>
 		<div class="sidebar__records-header">
-			<p>{{ sidebar.records.all.length }} records</p>
+			<p>{{ filtered.length }} records</p>
 		</div>
 		<ul class="sidebar__records">
-		  	<li ng-repeat="record in sidebar.records.all" class="sidebar__records-record" ng-class="{active: sidebar.records.params === record._id}">
+		  	<li ng-repeat="record in sidebar.records.all | filter:searchRecord as filtered" class="sidebar__records-record" ng-class="{active: sidebar.records.params === record._id}">
 		  		<div class="sidebar__records-record-edit">
 		  			<a role="button" class="icon-duplicate"></a>
 		  			<a role="button" class="icon-cross" ng-click="sidebar.deleteRecord(record)"></a>
@@ -16,7 +29,7 @@
 		  		<ul>
 		  			<li>
 		  				<a ui-sref="records.show.id.content.core({ id: record._id })">{{ record.title }}</a>
-		  				<span>Level: {{ record.type }}</span>
+		  				<span ng-repeat="artist in record.artists">{{ artist.name }}</span>
 		  			</li>
 		  		</ul>
 		  	</li>

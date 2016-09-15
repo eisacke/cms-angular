@@ -61,36 +61,4 @@ router.put('/update/person', function(req, res) {
   });
 });
 
-// UPDATE PERSON RELATIONSHIP (update)
-// var comment = post.comments.id(my_id);
-// comment.author = 'Bruce Wayne';
-
-// post.save(function (err) {
-//     // emmbeded comment with author updated     
-// });
-
-// router.put('/update/person/:id', function(req, res) {
-//   console.log(req.params.id);
-//   console.log(req.body);
-
-//     var exhibition = req.user.userListings.id(req.params.listingId);
-
-//     listing.isRead = args.isRead;
-//     listing.isFavorite = args.isFavorite;
-//     listing.isArchived = args.isArchived;
-
-//     req.user.save(function (err) {
-//       // ...
-//     });
-
-  // Exhibition.findByIdAndUpdate(req.body.exhibitionId, {
-  //   $pull: {
-  //     people: {_id: new ObjectId(req.body._id)}
-  //   }
-  // }, function(error, exhibition) {
-  //     if(error) return res.status(403).send({message: 'Could not update exhibition b/c' + error});
-  //     return res.status(200);
-  // });
-// });
-
 module.exports = router

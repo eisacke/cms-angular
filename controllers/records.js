@@ -5,10 +5,12 @@ var Record = require('../models/record');
 
 // INDEX
 router.get('/', function(req, res){
-  Record.find(function(error, records){
+  Record.find()
+  .populate('artists')
+  .exec(function(error, records){
     if(error) return res.status(404).send({message: 'Could not find any records'})
     return res.status(200).send(records);
-  });
+  })
 });
 
 // SHOW

@@ -4,13 +4,17 @@
 	        <label>Title</label>
 	        <input type="text" name="title" ng-model="records.records.single.title">
 	    </div>
-	    <div class="form__field form__field--text">
+<!-- 	    <div class="form__field form__field--text">
 	        <label>Type</label>
 	        <input type="text" name="type" ng-model="records.records.single.type">
-	    </div>
+	    </div> -->
 	    <div class="form__field form__field--select">
 	        <label>Artists</label>
 	        <selectize config='records.selectizeArtistConfig' options='records.artists' ng-model="records.records.single.artists"></selectize>
+	    </div>
+	    <div class="form__field form__field--text">
+	        <label>Date</label>
+	        <input type="text" name="date" ng-model="records.records.single.date">
 	    </div>
 	    <div class="form__field form__field--text">
 	        <label>Material</label>

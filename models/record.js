@@ -6,6 +6,7 @@ var Artist = require('./artist');
 var RecordSchema = new mongoose.Schema({
   title: String,
   type: String,
+  date: String,
   material: String,
   acquisition: String,
   country: { type: mongoose.Schema.ObjectId, ref: 'ListItem' },

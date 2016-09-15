@@ -61,6 +61,30 @@ section {
 	&__bottom {
 		
 	}
+	&__search {
+		.sidebar__records-header p {
+			@extend .icon-search;
+			position: relative;
+			padding-left: 20px;
+			&:before {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translate(0, -50%);
+			}
+		}
+		&-field {
+			padding: 0 15px;
+			label {
+				font-size: $font-size-smaller;
+			}
+			input {
+				background-color: $lightest-gray;
+				font-size: $font-size-smaller;
+				border-radius: 3px;
+			}
+		}
+	}
 	&__content {
 		padding: 20px 15px;
 		button {

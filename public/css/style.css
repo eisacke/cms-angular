@@ -553,7 +553,7 @@ picture {
   src: url("../fonts/qi-angular.eot?#iefix") format("embedded-opentype"), url("../fonts/qi-angular.woff") format("woff"), url("../fonts/qi-angular.ttf") format("truetype"), url("../fonts/qi-angular.svg#qi-angular") format("svg");
   font-weight: normal;
   font-style: normal; }
-.icon, .icon-user:before, .icon-group:before, .icon-configure:before, .icon-graph:before, .icon-list:before, .icon-multimedia:before, .icon-plus:before, .icon-review:before, .icon-cross:before, .icon-edit:before, .icon-minus:before, .icon-power:before, .icon-search:before, .icon-plus-thin:before, .sidebar__create:before, .lists__item-new-button:before, .icon-duplicate:before, .icon-arrow-down:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-up:before, .icon-tick:before, [class*='icon-']:before {
+.icon, .icon-user:before, .icon-group:before, .icon-configure:before, .icon-graph:before, .icon-list:before, .icon-multimedia:before, .icon-plus:before, .icon-review:before, .icon-cross:before, .icon-edit:before, .icon-minus:before, .icon-power:before, .icon-search:before, .sidebar__search .sidebar__records-header p:before, .icon-plus-thin:before, .sidebar__create:before, .lists__item-new-button:before, .icon-duplicate:before, .icon-arrow-down:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-arrow-up:before, .icon-tick:before, [class*='icon-']:before {
   display: inline-block;
   font-family: 'qi angular';
   font-style: normal;
@@ -598,7 +598,7 @@ picture {
 .icon-power:before {
   content: '\004c'; }
 
-.icon-search:before {
+.icon-search:before, .sidebar__search .sidebar__records-header p:before {
   content: '\004d'; }
 
 .icon-plus-thin:before, .sidebar__create:before, .lists__item-new-button:before {
@@ -999,6 +999,22 @@ section {
   .sidebar__top {
     background-color: #5a5953;
     padding: 20px 15px; }
+  .sidebar__search .sidebar__records-header p {
+    position: relative;
+    padding-left: 20px; }
+    .sidebar__search .sidebar__records-header p:before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%); }
+  .sidebar__search-field {
+    padding: 0 15px; }
+    .sidebar__search-field label {
+      font-size: 0.75em; }
+    .sidebar__search-field input {
+      background-color: #f0f0f0;
+      font-size: 0.75em;
+      border-radius: 3px; }
   .sidebar__content {
     padding: 20px 15px; }
     .sidebar__content button {

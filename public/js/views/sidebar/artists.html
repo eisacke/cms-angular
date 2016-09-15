@@ -3,11 +3,24 @@
 		<button class="sidebar__create" ui-sref="artists.new">Create a new artist</button>
 	</div>
 	<div class="sidebar__bottom">
+		<div class="sidebar__search">
+			<div class="sidebar__records-header">
+				<p>SEARCH</p>
+			</div>
+			<div class="sidebar__search-field">
+				<label>All</label>
+				<input type="text" name="type" ng-model="searchArtist.$">
+			</div>
+			<div class="sidebar__search-field">
+				<label>Name</label>
+				<input type="text" name="title" ng-model="searchArtist.name">
+			</div>
+		</div>
 		<div class="sidebar__records-header">
-			<p>{{ sidebar.artists.all.length }} artists</p>
+			<p>{{ filtered.length }} artists</p>
 		</div>
 		<ul class="sidebar__records">
-		  	<li ng-repeat="artist in sidebar.artists.all" class="sidebar__records-record" ng-class="{active: sidebar.artists.params === artist._id}">
+		  	<li ng-repeat="artist in sidebar.artists.all | filter:searchArtist as filtered" class="sidebar__records-record" ng-class="{active: sidebar.artists.params === artist._id}">
 		  		<div class="sidebar__records-record-edit">
 		  			<a role="button" class="icon-duplicate"></a>
 		  			<a role="button" class="icon-cross" ng-click="sidebar.deleteArtist(artist)"></a>

@@ -2,19 +2,23 @@
     <div class="data__main">
 	<h1>Create a new artwork</h1>
         <form id="newRecord" class="form" ng-submit="records.createRecord()">
-            <div class="form__field">
+            <div class="form__field form__field--text">
                 <label>Title</label>
                 <input type="text" name="title" ng-model="records.newRecord.title">
             </div>
-            <div class="form__field">
+<!--             <div class="form__field">
                 <label>Type</label>
                 <input type="text" name="type" ng-model="records.newRecord.type">
-            </div>
+            </div> -->
             <div class="form__field form__field--select">
                 <label>Artists</label>
                 <selectize config='records.selectizeArtistConfig' options='records.artists' ng-model="records.newRecord.artists"></selectize>
             </div>
-            <div class="form__field">
+            <div class="form__field form__field--text">
+                <label>Date</label>
+                <input type="text" name="date" ng-model="records.newRecord.date">
+            </div>
+            <div class="form__field form__field--text">
                 <label>Material</label>
         	    <input type="text" name="material" ng-model="records.newRecord.material">
             </div>

@@ -10,7 +10,9 @@ function RecordsController (Record, Artist, $state, $stateParams, record, list) 
     self.records = {};
     self.records = record;
     self.records.params = $stateParams.id;
-    self.newRecord = {};
+    self.newRecord = {
+        type: "Item"
+    };
     self.records.state = $state;
 
     self.lists = list;
@@ -20,7 +22,6 @@ function RecordsController (Record, Artist, $state, $stateParams, record, list) 
     self.getRecord = function() {
         Record.get({ id: $stateParams.id}, function(returnedRecord){
             self.records.single = returnedRecord;
-            self.records.single.tags = self.records.single.tags.map(function(x) { return { item: x }; });
         });
     }
   
@@ -45,12 +46,18 @@ function RecordsController (Record, Artist, $state, $stateParams, record, list) 
         Record.update(self.records.single);
     }
 
+    self.updateRecord = function() {
+        Record.update(self.records.single);
+        self.records.all = Record.query();
+    }
+
     self.selectizeArtistConfig = {
         valueField: '_id',
         labelField: 'name',
         delimiter: '|',
         placeholder: 'Select artists',
-        searchField: "name"
+        searchField: 'name',
+        sortField: 'name'
     }
 
     self.selectizeCountryConfig = {
@@ -59,12 +66,8 @@ function RecordsController (Record, Artist, $state, $stateParams, record, list) 
         delimiter: '|',
         placeholder: 'Select country',
         maxItems: 1,
-        searchField: "title"
-    }
-
-    self.updateRecord = function() {
-        Record.update(self.records.single);
-        self.records.all = Record.query();
+        searchField: "title",
+        sortField: 'title'
     }
 
 }
