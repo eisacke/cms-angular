@@ -1,0 +1,36 @@
+<section>
+	<form id="record" class="form" ng-submit="records.updateRecord()">
+	    <div class="form__field form__field--text">
+	        <label>Title</label>
+	        <input type="text" name="title" ng-model="records.records.single.title">
+	    </div>
+	    <div class="form__field form__field--text">
+	        <label>Type</label>
+	        <input type="text" name="type" ng-model="records.records.single.type">
+	    </div>
+	    <div class="form__field form__field--select">
+	        <label>Artists</label>
+	        <selectize config='records.selectizeArtistConfig' options='records.artists' ng-model="records.records.single.artists"></selectize>
+	    </div>
+	    <div class="form__field form__field--text">
+	        <label>Material</label>
+	        <input type="text" name="material" ng-model="records.records.single.material">
+	    </div>
+	    <div class="form__field form__field--select">
+	        <label>Country</label>
+	        <selectize config='records.selectizeCountryConfig' options='records.lists.country[0].items' ng-model="records.records.single.country"></selectize>
+	    </div>
+	    <div class="form__field">
+	        <label>Acquisition method</label>
+	        <textarea name="acquisition" ng-model="records.records.single.acquisition"></textarea>
+	    </div>
+	    <div class="form__submit">
+	    	<input type="submit" value="Update Artwork">
+	    </div>
+	</form>
+</section>
+<section>
+	<ul class="data__subnav">
+	    <li class="data__subnav-item active">Relationships</li>
+	</ul>
+</section>

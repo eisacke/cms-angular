@@ -1,0 +1,34 @@
+<div class="data data--no-header">
+    <div class="data__main">
+	<h1>Create a new artwork</h1>
+        <form id="newRecord" class="form" ng-submit="records.createRecord()">
+            <div class="form__field">
+                <label>Title</label>
+                <input type="text" name="title" ng-model="records.newRecord.title">
+            </div>
+            <div class="form__field">
+                <label>Type</label>
+                <input type="text" name="type" ng-model="records.newRecord.type">
+            </div>
+            <div class="form__field form__field--select">
+                <label>Artists</label>
+                <selectize config='records.selectizeArtistConfig' options='records.artists' ng-model="records.newRecord.artists"></selectize>
+            </div>
+            <div class="form__field">
+                <label>Material</label>
+        	    <input type="text" name="material" ng-model="records.newRecord.material">
+            </div>
+            <div class="form__field">
+        	    <label>Country</label>
+        	    <selectize config='records.selectizeCountryConfig' options='records.lists.country[0].items' ng-model="records.newRecord.country"></selectize>
+            </div>
+            <div class="form__field">
+        	    <label>Acquisition method</label>
+        	    <textarea name="acquisition" ng-model="records.newRecord.acquisition"></textarea>
+            </div>
+            <div class="form__submit">
+                <input type="submit" value="Create Artwork">
+            </div>
+        </form>
+    </div>
+</div>

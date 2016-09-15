@@ -1,0 +1,25 @@
+<div class="sidebar">
+	<div class="sidebar__top">
+		<button class="sidebar__create" ui-sref="records.new">Create a new record</button>
+	</div>
+	<div class="sidebar__bottom">
+		<div class="sidebar__records-header">
+			<p>{{ sidebar.records.all.length }} records</p>
+		</div>
+		<ul class="sidebar__records">
+		  	<li ng-repeat="record in sidebar.records.all" class="sidebar__records-record" ng-class="{active: sidebar.records.params === record._id}">
+		  		<div class="sidebar__records-record-edit">
+		  			<a role="button" class="icon-duplicate"></a>
+		  			<a role="button" class="icon-cross" ng-click="sidebar.deleteRecord(record)"></a>
+		  			<a role="button" class="icon-power" ng-click="sidebar.updateRecord(record, record.active ? false : true)" ng-class="{'disabled': record.active == false}"></a>
+		  		</div>
+		  		<ul>
+		  			<li>
+		  				<a ui-sref="records.show.id.content.core({ id: record._id })">{{ record.title }}</a>
+		  				<span>Level: {{ record.type }}</span>
+		  			</li>
+		  		</ul>
+		  	</li>
+		  </ul>
+	  </div>
+</div>

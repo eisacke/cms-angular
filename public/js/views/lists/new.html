@@ -1,0 +1,14 @@
+<div class="data data--no-header">
+    <div class="data__main">
+	<h1>Create a new list</h1>
+        <form id="newList" class="form" ng-submit="lists.createList()">
+            <div class="form__field">
+                <label>Title</label>
+                <input type="text" name="title" ng-model="lists.newList.title">
+            </div>
+            <div class="form__submit">
+                <input type="submit" value="Create List">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="data data--no-header">
+	<div class="data__main">
+		<section>
+			<form id="list" class="form" ng-submit="lists.updateList()">
+			    <div class="form__field form__field--text">
+			        <label>Title</label>
+			        <input type="text" name="title" ng-model="lists.lists.single.title">
+			    </div>
+			    <div class="form__submit">
+			    	<input type="submit" value="Update List">
+			    </div>
+			</form>
+		</section>
+		<section>
+		    <div class="form__field form__field--text" ng-show="lists.lists.single.items.length > 0">
+		        <label>List Items</label>
+		        <ul class="lists__list">
+		        	<li ng-repeat="item in lists.lists.single.items" class="lists__list-item" data-id="{{item._id}}">
+		        		<div class="lists__edit">
+			        		<a role="button" class="icon-edit" ng-click="lists.listItemToggleForm(item)"></a>
+			        		<a role="button" class="icon-tick" ng-click="lists.updateListItem(item)"></a>
+				  			<a role="button" class="icon-cross" ng-click="lists.deleteListItem(item)"></a>
+				  			<a role="button" class="icon-power" ng-click="lists.updateListItem(item, item.active ? false : true)" ng-class="{'disabled': item.active == false}"></a>
+		        		</div>
+		        		{{ item.title }}
+		        		<input type="text" ng-model="lists.listItem.title">
+		        	</li>
+		        </ul>
+		    </div>
+		    <form name="lists.listItemForm" id="listItem" class="form" ng-submit="lists.createListItem(lists.listItemForm.$valid)" novalidate>
+			   	<div class="form__field form__field--text lists__item-new">
+			        <label>Add List Item</label>
+			        <input type="text" name="title" ng-model="lists.newListItem.title" required>
+			        <p ng-show="lists.listItemForm.title.$invalid && (lists.listItemForm.title.$touched || lists.submitted)" class="form__error">This field is required.</p>
+			        <button type="submit" class="lists__item-new-button"></button>
+			    </div>
+		    </form>
+	    </section>
+	</div>
+</div>

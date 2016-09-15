@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'qi angular';
+    src: url('../fonts/qi-angular.eot');
+    src: url('../fonts/qi-angular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/qi-angular.woff') format('woff'),
+         url('../fonts/qi-angular.ttf') format('truetype'),
+         url('../fonts/qi-angular.svg#qi-angular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon, [class*='icon-']:before{
+	display: inline-block;
+    font-family: 'qi angular';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user {
+  &:before {
+    @extend .icon;
+    content:'\0041';
+  }
+}
+
+.icon-group {
+  &:before {
+    @extend .icon;
+    content:'\0042';
+  }
+}
+
+.icon-configure {
+  &:before {
+    @extend .icon;
+    content:'\0043';
+  }
+}
+
+.icon-graph {
+  &:before {
+    @extend .icon;
+    content:'\0044';
+  }
+}
+
+.icon-list {
+  &:before {
+    @extend .icon;
+    content:'\0045';
+  }
+}
+
+.icon-multimedia {
+  &:before {
+    @extend .icon;
+    content:'\0046';
+  }
+}
+
+.icon-plus {
+  &:before {
+    @extend .icon;
+    content:'\0047';
+  }
+}
+
+.icon-review {
+  &:before {
+    @extend .icon;
+    content:'\0048';
+  }
+}
+
+.icon-cross {
+  &:before {
+    @extend .icon;
+    content:'\0049';
+  }
+}
+
+.icon-edit {
+  &:before {
+    @extend .icon;
+    content:'\004a';
+  }
+}
+
+.icon-minus {
+  &:before {
+    @extend .icon;
+    content:'\004b';
+  }
+}
+
+.icon-power {
+  &:before {
+    @extend .icon;
+    content:'\004c';
+  }
+}
+
+.icon-search {
+  &:before {
+    @extend .icon;
+    content:'\004d';
+  }
+}
+
+.icon-plus-thin {
+  &:before {
+    @extend .icon;
+    content:'\004e';
+  }
+}
+
+.icon-duplicate {
+  &:before {
+    @extend .icon;
+    content:'\004f';
+  }
+}
+
+.icon-arrow-down {
+  &:before {
+    @extend .icon;
+    content:'\0050';
+  }
+}
+
+.icon-arrow-left {
+  &:before {
+    @extend .icon;
+    content:'\0051';
+  }
+}
+
+.icon-arrow-right {
+  &:before {
+    @extend .icon;
+    content:'\0052';
+  }
+}
+
+.icon-arrow-up {
+  &:before {
+    @extend .icon;
+    content:'\0053';
+  }
+}
+
+.icon-tick {
+  &:before {
+    @extend .icon;
+    content:'\0054';
+  }
+}

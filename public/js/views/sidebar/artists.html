@@ -1,0 +1,24 @@
+<div class="sidebar">
+	<div class="sidebar__top">
+		<button class="sidebar__create" ui-sref="artists.new">Create a new artist</button>
+	</div>
+	<div class="sidebar__bottom">
+		<div class="sidebar__records-header">
+			<p>{{ sidebar.artists.all.length }} artists</p>
+		</div>
+		<ul class="sidebar__records">
+		  	<li ng-repeat="artist in sidebar.artists.all" class="sidebar__records-record" ng-class="{active: sidebar.artists.params === artist._id}">
+		  		<div class="sidebar__records-record-edit">
+		  			<a role="button" class="icon-duplicate"></a>
+		  			<a role="button" class="icon-cross" ng-click="sidebar.deleteArtist(artist)"></a>
+		  			<a role="button" class="icon-power" ng-click="sidebar.updateArtist(artist, artist.active ? false : true)" ng-class="{'disabled': artist.active == false}"></a>
+		  		</div>
+		  		<ul>
+		  			<li>
+		  				<a ui-sref="artists.show.id.content.core({ id: artist._id })">{{ artist.name }}</a>
+		  			</li>
+		  		</ul>
+		  	</li>
+		  </ul>
+	  </div>
+</div>

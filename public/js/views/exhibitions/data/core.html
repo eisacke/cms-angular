@@ -1,0 +1,57 @@
+<section>
+	<form id="record" class="form" ng-submit="exhibitions.updateExhibition()">
+	    <div class="form__field form__field--text">
+	        <label>Title</label>
+	        <input type="text" name="title" ng-model="exhibitions.exhibitions.single.title">
+	    </div>
+	    <div class="form__field">
+	        <label>Opening Date</label>
+	        <input type="date" name="openingDate" ng-model="exhibitions.exhibitions.single.openingDate">
+	    </div>
+	   	<div class="form__field">
+	        <label>Closing Date</label>
+	        <input type="date" name="closingDate" ng-model="exhibitions.exhibitions.single.closingDate">
+	    </div>
+	    <div class="form__submit">
+	    	<input type="submit" value="Update Exhibition">
+	    </div>
+	</form>
+</section>
+<section>
+	<ul class="data__subnav">
+	    <li class="data__subnav-item active">Relationships</li>
+	</ul>
+	<section>
+		<ul class="relationships">
+			<li ng-repeat="person in exhibitions.exhibitions.single.people" class="relationships__item">
+				<div class="relationships__item-info">
+					<p>{{person.personId.name}}</p>
+					<span>Role: {{person.role.title}}</span>
+				</div>
+				<div class="relationships__item-edit">
+					<div class="relationships__item-edit-buttons">
+						<a role="button" class="icon-edit" ng-click="exhibitions.listItemToggleForm(person)"></a>
+		        		<!-- <a role="button" class="icon-tick" ng-click="exhibitions.updateListItem(person)"></a> -->
+			  			<a role="button" class="icon-cross" ng-click="exhibitions.deletePersonRelationship(person)"></a>
+			  			<a role="button" class="icon-power" ng-click="exhibitions.updatePersonRelationship(person, person.active ? false : true)" ng-class="{'disabled': person.active == false}"></a>
+		  			</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<form id="personRelationship" class="form" ng-submit="exhibitions.addPersonRelationship()">
+		    <div class="form__field form__field--select">
+		        <label>People & Organizations</label>
+		        <selectize config='exhibitions.selectizeArtistConfig' options='exhibitions.artists.all' ng-model="exhibitions.relationship.people.personId"></selectize>
+		    </div>
+		    <div class="form__field form__field--select">
+		        <label>Role</label>
+		        <selectize config='exhibitions.selectizeRoleConfig' options='exhibitions.lists.role[0].items' ng-model="exhibitions.relationship.people.role"></selectize>
+		    </div>
+		    <div class="form__submit">
+		    	<input type="submit" value="Add">
+		    </div>
+		</form>
+	</section>
+</section>

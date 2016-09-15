@@ -1,0 +1,14 @@
+<div class="data data--no-header">
+    <div class="data__main">
+	<h1>Create a new artist</h1>
+        <form id="newArtist" class="form" ng-submit="artists.createArtist()">
+            <div class="form__field">
+                <label>Name</label>
+                <input type="text" name="name" ng-model="artists.newArtist.name">
+            </div>
+            <div class="form__submit">
+                <input type="submit" value="Create Artist">
+            </div>
+        </form>
+    </div>
+</div>

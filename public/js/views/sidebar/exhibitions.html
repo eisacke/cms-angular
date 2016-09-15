@@ -1,0 +1,25 @@
+<div class="sidebar">
+	<div class="sidebar__top">
+		<button class="sidebar__create" ui-sref="exhibitions.new">Create a new exhibition</button>
+	</div>
+	<div class="sidebar__bottom">
+		<div class="sidebar__records-header">
+			<p>{{ sidebar.exhibitions.all.length }} exhibitions</p>
+		</div>
+		<ul class="sidebar__records">
+		  	<li ng-repeat="exhibition in sidebar.exhibitions.all" class="sidebar__records-record" ng-class="{active: sidebar.exhibitions.params === exhibition._id}">
+		  		<div class="sidebar__records-record-edit">
+		  			<a role="button" class="icon-duplicate"></a>
+		  			<a role="button" class="icon-cross" ng-click="sidebar.deleteExhibition(exhibition)"></a>
+		  			<a role="button" class="icon-power" ng-click="sidebar.updateExhibition(exhibition, exhibition.active ? false : true)" ng-class="{'disabled': exhibition.active == false}"></a>
+		  		</div>
+		  		<ul>
+		  			<li>
+		  				<a ui-sref="exhibitions.show.id.content.core({ id: exhibition._id })">{{ exhibition.title }}</a>
+		  				<span>{{ exhibition.date }}</span>
+		  			</li>
+		  		</ul>
+		  	</li>
+		  </ul>
+	  </div>
+</div>
