@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Exhibition = require('../models/exhibition');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 // INDEX
 router.get('/', function(req, res){
@@ -36,6 +37,18 @@ router.put('/:id', function(req, res) {
       if(error) return res.status(403).send({message: 'Could not update exhibition b/c' + error});
       return res.status(200);
     });
+});
+
+// UPDATE PERSON RELATIONSHIP
+router.put('/update/person', function(req, res) {
+  Exhibition.findByIdAndUpdate(req.body.exhibitionId, {
+    $pull: {
+      people: {_id: new ObjectId(req.body._id)}
+    }
+  }, function(error, exhibition) {
+      if(error) return res.status(403).send({message: 'Could not update exhibition b/c' + error});
+      return res.status(200);
+  });
 });
 
 // DELETE

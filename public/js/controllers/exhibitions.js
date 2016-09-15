@@ -60,6 +60,15 @@ function ExhibitionsController (Exhibition, Artist, List, ListItem, Record, $sta
         self.getExhibition();
     }
 
+    self.deletePersonRelationship = function(person) {
+        console.log(person);
+        person.exhibitionId = self.exhibitions.params;
+        Exhibition.updatePerson(person);
+
+        var index = self.exhibitions.single.people.indexOf(person);
+        self.exhibitions.single.people.splice(index, 1);
+    }
+
     self.selectizeArtistConfig = {
         valueField: '_id',
         labelField: 'name',

@@ -16,7 +16,11 @@ function Exhibition($resource) {
         'update':    { method: 'PUT' },
         'query':     { method: 'GET', isArray: true},
         'remove':    { method: 'DELETE' },
-        'delete':    { method: 'DELETE' }
+        'delete':    { method: 'DELETE' },
+        'updatePerson': { 
+            url: url + '/exhibitions/update/person',
+            method: 'PUT'
+        },
     });
     return ExhibitionResource;
 }
