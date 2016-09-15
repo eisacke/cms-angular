@@ -39,7 +39,17 @@ router.put('/:id', function(req, res) {
     });
 });
 
-// UPDATE PERSON RELATIONSHIP
+// DELETE
+router.delete('/:id', function(req, res){
+  var id = req.params.id;
+  Exhibition.remove({_id: id}, function(error){
+    if (error) res.status(404).send({message: 'No exhibition with that ID. Could not delete.'})
+    return res.status(204).send({message: 'Deleted!'});
+  });
+});
+
+
+// UPDATE PERSON RELATIONSHIP (delete)
 router.put('/update/person', function(req, res) {
   Exhibition.findByIdAndUpdate(req.body.exhibitionId, {
     $pull: {
@@ -51,13 +61,36 @@ router.put('/update/person', function(req, res) {
   });
 });
 
-// DELETE
-router.delete('/:id', function(req, res){
-  var id = req.params.id;
-  Exhibition.remove({_id: id}, function(error){
-    if (error) res.status(404).send({message: 'No exhibition with that ID. Could not delete.'})
-    return res.status(204).send({message: 'Deleted!'});
-  });
-});
+// UPDATE PERSON RELATIONSHIP (update)
+// var comment = post.comments.id(my_id);
+// comment.author = 'Bruce Wayne';
+
+// post.save(function (err) {
+//     // emmbeded comment with author updated     
+// });
+
+// router.put('/update/person/:id', function(req, res) {
+//   console.log(req.params.id);
+//   console.log(req.body);
+
+//     var exhibition = req.user.userListings.id(req.params.listingId);
+
+//     listing.isRead = args.isRead;
+//     listing.isFavorite = args.isFavorite;
+//     listing.isArchived = args.isArchived;
+
+//     req.user.save(function (err) {
+//       // ...
+//     });
+
+  // Exhibition.findByIdAndUpdate(req.body.exhibitionId, {
+  //   $pull: {
+  //     people: {_id: new ObjectId(req.body._id)}
+  //   }
+  // }, function(error, exhibition) {
+  //     if(error) return res.status(403).send({message: 'Could not update exhibition b/c' + error});
+  //     return res.status(200);
+  // });
+// });
 
 module.exports = router

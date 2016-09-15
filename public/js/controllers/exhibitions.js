@@ -15,6 +15,16 @@ function ExhibitionsController (Exhibition, Artist, List, ListItem, Record, $sta
     self.artists = artist;
     self.lists = list;
 
+    // RELATIONSHIPS
+    self.newPerson = {
+        personId: {
+            name: "",
+        },
+        role: {
+            title: ""
+        }
+    };
+
     self.getExhibition = function() {
         Exhibition.get({ id: $stateParams.id}, function(returnedExhibition){
             self.exhibitions.single = returnedExhibition;
@@ -34,7 +44,7 @@ function ExhibitionsController (Exhibition, Artist, List, ListItem, Record, $sta
         });
     }
   
-    self.showExhibition = function(ex) {
+    self.showExhibition = function(exhibition) {
         $state.go('exhibitions.show.id.content.core', { id: exhibition._id });
     }
 
@@ -54,19 +64,27 @@ function ExhibitionsController (Exhibition, Artist, List, ListItem, Record, $sta
             'personId': self.relationship.people.personId,
             'role': self.relationship.people.role
         }
-        console.log('adding person', person)
         self.exhibitions.single.people.push(person);
         Exhibition.update(self.exhibitions.single);
-        self.getExhibition();
+
+        // HACK
+        setTimeout(function() {
+            var $newRelationship = $('.relationships__item:last-of-type');
+            $newRelationship.find('p').html(self.newPerson.name);
+            $newRelationship.find('span').html(self.newPerson.role);
+        }, 10)
     }
 
     self.deletePersonRelationship = function(person) {
-        console.log(person);
         person.exhibitionId = self.exhibitions.params;
-        Exhibition.updatePerson(person);
-
+        Exhibition.deletePerson(person);
         var index = self.exhibitions.single.people.indexOf(person);
         self.exhibitions.single.people.splice(index, 1);
+    }
+
+    self.updatePersonRelationship = function(person, status) {
+        person.active = status;
+        Exhibition.update(self.exhibitions.single);
     }
 
     self.selectizeArtistConfig = {
@@ -76,8 +94,8 @@ function ExhibitionsController (Exhibition, Artist, List, ListItem, Record, $sta
         placeholder: 'Select a person or organization',
         searchField: "name",
         maxItems: 1,
-        onItemAdd: function(value) {
-            console.log(value);
+        onItemAdd: function(value, $item) {
+            self.newPerson.name = $item[0].innerText;
         }
     }
 
@@ -88,8 +106,8 @@ function ExhibitionsController (Exhibition, Artist, List, ListItem, Record, $sta
         placeholder: 'Select a role',
         searchField: "title",
         maxItems: 1,
-        onItemAdd: function(value) {
-            console.log(value);
+        onItemAdd: function(value, $item) {
+            self.newPerson.role = $item[0].innerText;
         }
     }
 }

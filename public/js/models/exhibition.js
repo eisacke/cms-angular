@@ -17,10 +17,10 @@ function Exhibition($resource) {
         'query':     { method: 'GET', isArray: true},
         'remove':    { method: 'DELETE' },
         'delete':    { method: 'DELETE' },
-        'updatePerson': { 
+        'deletePerson': { 
             url: url + '/exhibitions/update/person',
             method: 'PUT'
-        },
+        }
     });
     return ExhibitionResource;
 }

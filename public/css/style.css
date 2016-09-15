@@ -380,7 +380,7 @@ button, [type='button'], [type='reset'], [type='submit'] {
   cursor: pointer;
   display: inline-block;
   font-family: "Karla", sans-serif;
-  font-size: 1em;
+  font-size: 0.875em;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
