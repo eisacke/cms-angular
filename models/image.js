@@ -11,7 +11,8 @@ var ImageSchema = new mongoose.Schema({
   copyright: String,
   titleInContext: String,
   alternateTextInContext: String,
-  active: Boolean
+  active: Boolean,
+  fileSize: String
 });
 
 var Image = mongoose.model("Image", ImageSchema);

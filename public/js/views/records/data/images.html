@@ -1,52 +1,69 @@
-<ul class="image-grid">
-	<li class="image-grid__single" ng-repeat="image in uploader.records.single.files">
-		<img ng-src="images/uploads/{{image.path}}">
-		<p>{{image.title}}</p>	
-	</li>
-</ul>
+<section>
+    <button class="upload__btn">Upload File</button>
+    <div class="progress">
+      	<div class="progress-bar" role="progressbar"></div>
+    </div>
 
-<div class="progress">
-  	<div class="progress-bar" role="progressbar"></div>
-</div>
-<button class="upload__btn">Upload File</button>
-
-<form id="record" class="form" ng-submit="uploader.createImage()">
-	<input class="upload__input" type="file" name="uploads[]">
-    <div class="form__field form__field--text">
-        <label>Title</label>
-        <input type="text" name="title" ng-model="uploader.newImage.title">
-    </div>
-    <div class="form__field">
-        <label>Caption</label>
-        <textarea name="caption" ng-model="uploader.newImage.caption"></textarea>
-    </div>
-    <div class="form__field">
-        <label>Alternate text</label>
-        <textarea name="alternateText" ng-model="uploader.newImage.alternateText"></textarea>
-    </div>
-    <div class="form__field form__field--text">
-        <label>Media credits</label>
-        <input type="text" name="title" ng-model="uploader.newImage.mediaCredits">
-    </div>
-    <div class="form__field form__field--text">
-        <label>Copyright</label>
-        <input type="text" name="title" ng-model="uploader.newImage.copyright">
-    </div>
-    <div class="form__field form__field--text">
-        <label>Title in context</label>
-        <input type="text" name="titleInContext" ng-model="uploader.newImage.titleInContext">
-    </div>
+    <form id="record" class="form" ng-submit="uploader.createImage()">
+    	<input class="upload__input" type="file" name="uploads[]">
         <div class="form__field form__field--text">
-        <label>Caption in context</label>
-        <input type="text" name="captionInContext" ng-model="uploader.newImage.captionInContext">
-    </div>
+            <label>Title</label>
+            <input type="text" name="title" ng-model="uploader.newImage.title">
+        </div>
+        <div class="form__field">
+            <label>Caption</label>
+            <textarea name="caption" ng-model="uploader.newImage.caption"></textarea>
+        </div>
+        <div class="form__field">
+            <label>Alternate text</label>
+            <textarea name="alternateText" ng-model="uploader.newImage.alternateText"></textarea>
+        </div>
         <div class="form__field form__field--text">
-        <label>Alternate text in context</label>
-        <input type="text" name="alternateTextInContext" ng-model="uploader.newImage.alternateTextInContext">
-    </div>
-    <div class="form__submit">
-    	<input type="submit" value="Add Image">
-    </div>
-</form>
-
-{{uploader.recordId}}
+            <label>Media credits</label>
+            <input type="text" name="title" ng-model="uploader.newImage.mediaCredits">
+        </div>
+        <div class="form__field form__field--text">
+            <label>Copyright</label>
+            <input type="text" name="title" ng-model="uploader.newImage.copyright">
+        </div>
+        <div class="form__field form__field--text">
+            <label>Title in context</label>
+            <input type="text" name="titleInContext" ng-model="uploader.newImage.titleInContext">
+        </div>
+            <div class="form__field form__field--text">
+            <label>Caption in context</label>
+            <input type="text" name="captionInContext" ng-model="uploader.newImage.captionInContext">
+        </div>
+            <div class="form__field form__field--text">
+            <label>Alternate text in context</label>
+            <input type="text" name="alternateTextInContext" ng-model="uploader.newImage.alternateTextInContext">
+        </div>
+        <div class="form__submit">
+        	<input type="submit" value="Add Image">
+        </div>
+    </form>
+</section>
+<section>
+    <ul class="data__subnav">
+        <li class="data__subnav-item active">Website images</li>
+    </ul>
+    <ul class="image-grid">
+        <li class="image-grid__single" ng-repeat="image in uploader.records.single.files">
+            <div class="image-grid__single-header">
+                <p>{{image.title}}</p> <span>{{image.fileSize | bytes}}</span>
+                <div class="image-grid__single-buttons">
+                    <a role="button" class="icon-cross" ng-click="uploader.deleteImage(image)"></a>
+                    <a role="button" class="icon-power" ng-click="uploader.updateImage(image, image.active ? false : true)" ng-class="{'disabled': image.active == false}"></a>
+                </div>
+            </div>
+            <div class="image-grid__single-content">
+                <div class="image-grid__single-content-left">
+                    <img ng-src="images/uploads/{{image.path}}">
+                </div>
+                <div class="image-grid__single-content-right">
+                    
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>

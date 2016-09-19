@@ -944,26 +944,27 @@ picture {
   opacity: 0.5;
   background-color: #fafafa; }
 
-.cf:before, section:before, .form:before, .relationships__item:before, .data:before, .image-grid:before,
+.cf:before, section:before, .form:before, .relationships__item:before, .data:before, .image-grid:before, .image-grid__single-content:before,
 .cf:after,
 section:after,
 .form:after,
 .relationships__item:after,
 .data:after,
-.image-grid:after {
+.image-grid:after,
+.image-grid__single-content:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
 
-.cf:after, section:after, .form:after, .relationships__item:after, .data:after, .image-grid:after {
+.cf:after, section:after, .form:after, .relationships__item:after, .data:after, .image-grid:after, .image-grid__single-content:after {
   clear: both; }
 
 /**
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-.cf, section, .form, .relationships__item, .data, .image-grid {
+.cf, section, .form, .relationships__item, .data, .image-grid, .image-grid__single-content {
   *zoom: 1; }
 
 main {
@@ -1048,12 +1049,12 @@ section {
       display: block; }
     .sidebar__records-record.active {
       background-color: #3b3a36; }
-    .sidebar__records-record-edit, .relationships__item-edit-buttons, .lists__edit {
+    .sidebar__records-record-edit, .relationships__item-edit-buttons, .lists__edit, .image-grid__single-buttons {
       position: absolute;
       top: 50%;
       transform: translate(0, -50%);
       right: 15px; }
-      .sidebar__records-record-edit a, .relationships__item-edit-buttons a, .lists__edit a {
+      .sidebar__records-record-edit a, .relationships__item-edit-buttons a, .lists__edit a, .image-grid__single-buttons a {
         display: none;
         float: left;
         width: 15px;
@@ -1065,25 +1066,25 @@ section {
         margin-right: 2px;
         transition: background-color 150ms ease;
         cursor: pointer; }
-        .sidebar__records-record-edit a:last-of-type, .relationships__item-edit-buttons a:last-of-type, .lists__edit a:last-of-type {
+        .sidebar__records-record-edit a:last-of-type, .relationships__item-edit-buttons a:last-of-type, .lists__edit a:last-of-type, .image-grid__single-buttons a:last-of-type {
           margin: 0; }
-        .sidebar__records-record-edit a:before, .relationships__item-edit-buttons a:before, .lists__edit a:before {
+        .sidebar__records-record-edit a:before, .relationships__item-edit-buttons a:before, .lists__edit a:before, .image-grid__single-buttons a:before {
           position: absolute;
           top: 49%;
           left: 50%;
           transform: translate(-50%, -50%); }
-        .sidebar__records-record-edit a:hover, .relationships__item-edit-buttons a:hover, .lists__edit a:hover {
+        .sidebar__records-record-edit a:hover, .relationships__item-edit-buttons a:hover, .lists__edit a:hover, .image-grid__single-buttons a:hover {
           background-color: #888785; }
-        .sidebar__records-record-edit a.icon-power, .relationships__item-edit-buttons a.icon-power, .lists__edit a.icon-power {
+        .sidebar__records-record-edit a.icon-power, .relationships__item-edit-buttons a.icon-power, .lists__edit a.icon-power, .image-grid__single-buttons a.icon-power {
           background-color: #45b140; }
-          .sidebar__records-record-edit a.icon-power:hover, .relationships__item-edit-buttons a.icon-power:hover, .lists__edit a.icon-power:hover {
+          .sidebar__records-record-edit a.icon-power:hover, .relationships__item-edit-buttons a.icon-power:hover, .lists__edit a.icon-power:hover, .image-grid__single-buttons a.icon-power:hover {
             background-color: #378e33; }
-          .sidebar__records-record-edit a.icon-power.disabled, .relationships__item-edit-buttons a.icon-power.disabled, .lists__edit a.icon-power.disabled {
+          .sidebar__records-record-edit a.icon-power.disabled, .relationships__item-edit-buttons a.icon-power.disabled, .lists__edit a.icon-power.disabled, .image-grid__single-buttons a.icon-power.disabled {
             background-color: #e64b00;
             display: inline-block; }
-            .sidebar__records-record-edit a.icon-power.disabled:hover, .relationships__item-edit-buttons a.icon-power.disabled:hover, .lists__edit a.icon-power.disabled:hover {
+            .sidebar__records-record-edit a.icon-power.disabled:hover, .relationships__item-edit-buttons a.icon-power.disabled:hover, .lists__edit a.icon-power.disabled:hover, .image-grid__single-buttons a.icon-power.disabled:hover {
               background-color: #b83c00; }
-    .sidebar__records-record:hover .sidebar__records-record-edit a, .sidebar__records-record:hover .relationships__item-edit-buttons a, .sidebar__records-record:hover .lists__edit a {
+    .sidebar__records-record:hover .sidebar__records-record-edit a, .sidebar__records-record:hover .relationships__item-edit-buttons a, .sidebar__records-record:hover .lists__edit a, .sidebar__records-record:hover .image-grid__single-buttons a {
       display: inline-block; }
   .sidebar__create {
     background-color: #e64b00;
@@ -1430,44 +1431,95 @@ header .subtitle {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%; }
+  width: 100%;
+  border: 1px solid #aaa9a6;
+  margin-bottom: 10px; }
   .image-grid__single:last-child {
     margin-right: 0; }
-  .image-grid__single:nth-child(4n) {
-    margin-right: 0; }
-  .image-grid__single:nth-child(4n+1) {
-    clear: left; }
+  .image-grid__single:last-of-type {
+    margin-bottom: 0; }
+  .image-grid__single-header {
+    border-bottom: 1px solid #aaa9a6;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    position: relative; }
+    .image-grid__single-header p {
+      font-weight: bold;
+      font-size: 0.875em;
+      display: inline-block;
+      margin-right: 10px; }
+    .image-grid__single-header span {
+      font-size: 0.75em;
+      color: #aaa9a6; }
+  .image-grid__single-buttons {
+    right: 10px; }
+    .image-grid__single-buttons a {
+      display: inline-block;
+      color: #FFF; }
+  .image-grid__single-content {
+    padding: 10px; }
+    .image-grid__single-content-left {
+      border-right: 1px solid #aaa9a6;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .image-grid__single-content-left:last-child {
+        margin-right: 0; }
+      .image-grid__single-content-left img {
+        float: left; }
+    .image-grid__single-content-right {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      margin-right: 0; }
+      .image-grid__single-content-right:last-child {
+        margin-right: 0; }
   .image-grid__single img {
-    max-width: 100%; }
+    max-width: 100px; }
 
 .upload__btn {
   color: #ffffff;
-  background-color: #F89406;
-  border: none; }
+  background-color: #e64b00;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  margin-left: 8.5298%;
+  padding: 8px 15px; }
+  .upload__btn:last-child {
+    margin-right: 0; }
   .upload__btn:hover, .upload__btn:focus, .upload__btn:active {
     color: #ffffff;
-    background-color: #FA8900;
-    border: none; }
+    background-color: #db4700; }
 .upload__input {
   display: none; }
 
 .progress {
-  height: 20px;
-  margin-bottom: 20px;
+  height: 30px;
+  margin-bottom: 0.75em;
   overflow: hidden;
-  background-color: #f5f5f5;
+  background-color: #f0f0f0;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-right: 0; }
+  .progress:last-child {
+    margin-right: 0; }
   .progress-bar {
     float: left;
     width: 0;
     height: 100%;
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 0.875em;
+    line-height: 30px;
     color: #fff;
     text-align: center;
-    background-color: #337ab7;
+    background-color: #e64b00;
     -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     -webkit-transition: width .6s ease;

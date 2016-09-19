@@ -23,6 +23,12 @@ function UploaderController (Record, List, Artist, Exhibition, Image, $state, $s
             Record.update(self.records.single);
         });
     };
+
+    self.deleteImage = function(image) {
+        Image.delete({id: image._id});
+        var index = self.records.single.files.indexOf(image);
+        self.records.single.files.splice(index, 1);
+    }
     
     function init(){
 
@@ -42,9 +48,9 @@ function UploaderController (Record, List, Artist, Exhibition, Image, $state, $s
                 for (var i = 0; i < files.length; i++) {
                     var file = files[i];
                     formData.append('uploads[]', file, file.name);
+                    console.log(file);
                     self.newImage.path = file.name;
-                    // self.records.single.files.push(file.name);
-                    // Record.update(self.records.single);
+                    self.newImage.fileSize = file.size;
                 }
     
                 $.ajax({

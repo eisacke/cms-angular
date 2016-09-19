@@ -569,10 +569,53 @@ header {
 .image-grid {
 	@extend .cf;
 	&__single {
-		@include span-columns(3);
-		@include omega(4n);
+		@include span-columns(12);
+		border: 1px solid $lighter-gray;
+		margin-bottom: 10px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		&-header {
+			border-bottom: 1px solid $lighter-gray;
+			background-color: $lightest-gray;
+			padding: 5px 10px;
+			position: relative;
+			p {
+				font-weight: $bold;
+				font-size: $font-size-small;
+				display: inline-block;
+				margin-right: 10px;
+			}
+			span {
+				font-size: $font-size-smaller;
+				color: $lighter-gray;
+			}
+		}
+		&-buttons {
+			@extend .sidebar__records-record-edit;
+			right: 10px;
+			a {
+				display: inline-block;
+				color: $white;
+			}
+		}
+		&-content {
+			padding: 10px;
+			@extend .cf;
+			&-left {
+				border-right: 1px solid $lighter-gray;
+				@include span-columns(6 of 12);
+				img {
+					float: left;
+				}
+			}
+			&-right {
+				@include span-columns(6 of 12);
+				@include omega();
+			}
+		}
 		img {
-			max-width: 100%;
+			max-width: 100px;
 		}
 	}
 }
@@ -582,12 +625,13 @@ header {
 .upload {
 	&__btn {
 		color: #ffffff;
-    	background-color: #F89406;
-	    border: none;
+    	background-color: $orange;
+	    @include span-columns(2);
+	    @include shift(1);
+	    padding: 8px 15px;
 	    &:hover, &:focus, &:active {
 	    	color: #ffffff;
-		    background-color: #FA8900;
-		    border: none;
+		    background-color: shade($orange, 5%);
 	    }
 	}
 	&__input {
@@ -596,22 +640,24 @@ header {
 }
 
 .progress {
-	height: 20px;
-    margin-bottom: 20px;
+	height: 30px;
+    margin-bottom: 0.75em;
     overflow: hidden;
-    background-color: #f5f5f5;
+    background-color: $lightest-gray;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    @include span-columns(8);
+    @include omega();
     &-bar {
     	float: left;
 	    width: 0;
 	    height: 100%;
-	    font-size: 12px;
-	    line-height: 20px;
+	    font-size: $font-size-small;
+	    line-height: 30px;
 	    color: #fff;
 	    text-align: center;
-	    background-color: #337ab7;
+	    background-color: $orange;
 	    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
 	    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
 	    -webkit-transition: width .6s ease;
