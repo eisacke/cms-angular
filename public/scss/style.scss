@@ -566,6 +566,17 @@ header {
 	visibility: visible;
 }
 
+.image-grid {
+	@extend .cf;
+	&__single {
+		@include span-columns(3);
+		@include omega(4n);
+		img {
+			max-width: 100%;
+		}
+	}
+}
+
 // UPLOAD TUTORIAL
 
 .upload {

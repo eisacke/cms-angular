@@ -6,7 +6,7 @@ var Record = require('../models/record');
 // INDEX
 router.get('/', function(req, res){
   Record.find()
-  .populate('artists')
+  .populate('artists files')
   .exec(function(error, records){
     if(error) return res.status(404).send({message: 'Could not find any records'})
     return res.status(200).send(records);
@@ -16,7 +16,7 @@ router.get('/', function(req, res){
 // SHOW
 router.get('/:id', function(req, res){
   Record.findById({_id: req.params.id})
-  // .populate('country')
+  .populate('files')
   .exec(function(error, lists){
     if(error) return res.status(404).send({message: 'Could not find any lists'})
     return res.status(200).send(lists);

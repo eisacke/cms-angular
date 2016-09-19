@@ -2,10 +2,27 @@ angular
     .module('QiAngular')
     .controller('UploaderController', UploaderController)
 
-UploaderController.$inject = ['Record', 'List', 'Artist', 'Exhibition', '$state', '$stateParams', 'record', 'list', 'artist', 'exhibition']
-function UploaderController (Record, List, Artist, Exhibition, $state, $stateParams, record, list, artist, exhibition) {
+UploaderController.$inject = ['Record', 'List', 'Artist', 'Exhibition', 'Image', '$state', '$stateParams', 'record', 'list', 'artist', 'exhibition']
+function UploaderController (Record, List, Artist, Exhibition, Image, $state, $stateParams, record, list, artist, exhibition) {
 
     var self = this;
+    self.records = record;
+    self.newImage = {};
+
+    self.getRecord = function() {
+        Record.get({ id: $stateParams.id}, function(returnedRecord){
+            self.records.single = returnedRecord;
+        });
+    }
+
+    self.createImage = function() {
+        self.newImage.recordId = $stateParams.id;
+        Image.save(self.newImage, function(image) {
+            self.newImage = {};
+            self.records.single.files.push(image._id);
+            Record.update(self.records.single);
+        });
+    };
     
     function init(){
 
@@ -25,6 +42,9 @@ function UploaderController (Record, List, Artist, Exhibition, $state, $statePar
                 for (var i = 0; i < files.length; i++) {
                     var file = files[i];
                     formData.append('uploads[]', file, file.name);
+                    self.newImage.path = file.name;
+                    // self.records.single.files.push(file.name);
+                    // Record.update(self.records.single);
                 }
     
                 $.ajax({

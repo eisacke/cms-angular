@@ -7,6 +7,7 @@ router.use('/api/artists', require('./artists'));
 router.use('/api/lists', require('./lists'));
 router.use('/api/listItems', require('./listItems'));
 router.use('/api/exhibitions', require('./exhibitions'));
+router.use('/api/images', require('./images'));
 
 router.get('/', function(req, res) {
   res.render("index.html");

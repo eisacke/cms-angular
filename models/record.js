@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var ListItem = require('./listItem');
 var Artist = require('./artist');
+var Image = require('./image');
 
 var RecordSchema = new mongoose.Schema({
   title: String,
@@ -12,7 +13,8 @@ var RecordSchema = new mongoose.Schema({
   country: { type: mongoose.Schema.ObjectId, ref: 'ListItem' },
   artists: [{ type: mongoose.Schema.ObjectId, ref: 'Artist' }],
   active: Boolean,
-  tags: []
+  tags: [String],
+  files: [{ type: mongoose.Schema.ObjectId, ref: 'Image' }]
 });
 
 var Record = mongoose.model("Record", RecordSchema);

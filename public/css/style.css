@@ -944,25 +944,26 @@ picture {
   opacity: 0.5;
   background-color: #fafafa; }
 
-.cf:before, section:before, .form:before, .relationships__item:before, .data:before,
+.cf:before, section:before, .form:before, .relationships__item:before, .data:before, .image-grid:before,
 .cf:after,
 section:after,
 .form:after,
 .relationships__item:after,
-.data:after {
+.data:after,
+.image-grid:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
 
-.cf:after, section:after, .form:after, .relationships__item:after, .data:after {
+.cf:after, section:after, .form:after, .relationships__item:after, .data:after, .image-grid:after {
   clear: both; }
 
 /**
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-.cf, section, .form, .relationships__item, .data {
+.cf, section, .form, .relationships__item, .data, .image-grid {
   *zoom: 1; }
 
 main {
@@ -1424,6 +1425,20 @@ header .subtitle {
   margin-bottom: 1px;
   border-radius: 5px;
   visibility: visible; }
+
+.image-grid__single {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%; }
+  .image-grid__single:last-child {
+    margin-right: 0; }
+  .image-grid__single:nth-child(4n) {
+    margin-right: 0; }
+  .image-grid__single:nth-child(4n+1) {
+    clear: left; }
+  .image-grid__single img {
+    max-width: 100%; }
 
 .upload__btn {
   color: #ffffff;
