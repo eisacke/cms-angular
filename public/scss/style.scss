@@ -572,6 +572,7 @@ header {
 		@include span-columns(12);
 		border: 1px solid $lighter-gray;
 		margin-bottom: 10px;
+		position: relative;
 		&:last-of-type {
 			margin-bottom: 0;
 		}
@@ -599,12 +600,19 @@ header {
 				color: $white;
 			}
 		}
+		&-wrap {
+			border-right: 1px solid $lighter-gray;
+		}
 		&-content {
 			padding: 10px;
 			@extend .cf;
+			p {
+				font-size: $font-size-small;
+				font-weight: $bold;
+			}
 			&-left {
-				border-right: 1px solid $lighter-gray;
-				@include span-columns(6 of 12);
+				height: 100%;
+				@include span-columns(4 of 12);
 				img {
 					float: left;
 				}
@@ -615,7 +623,22 @@ header {
 			}
 		}
 		img {
-			max-width: 100px;
+			@include span-columns(2 of 12);
+		}
+		table {
+			font-size: $font-size-smaller;
+			th, td {
+				border: 0;
+				padding: 0 0 5px;
+			}
+			th {
+				color: $lighter-gray;
+				font-weight: $regular;
+				@include span-columns(4 of 12);
+			}
+			td {
+				@include span-columns(8 of 12);
+			}
 		}
 	}
 }

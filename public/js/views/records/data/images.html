@@ -57,11 +57,46 @@
                 </div>
             </div>
             <div class="image-grid__single-content">
-                <div class="image-grid__single-content-left">
+                <div class="images-grid__single-wrap">
                     <img ng-src="images/uploads/{{image.path}}">
+                    <div class="image-grid__single-content-left">
+                        <p>In context info</p>
+                        <table>
+                            <tr>
+                                <th>Title</th>
+                                <td>{{image.titleInContext}}</td>
+                            </tr>
+                            <tr>
+                                <th>Alternate text</th>
+                                <td>{{image.alternateTextInContext}}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div class="image-grid__single-content-right">
-                    
+                    <p>Media library info</p>
+                    <table>
+                        <tr>
+                            <th>Title</th>
+                            <td>{{image.title}}</td>
+                        </tr>
+                        <tr>
+                            <th>Caption</th>
+                            <td>{{image.caption}}</td>
+                        </tr>
+                        <tr>
+                            <th>Media credits</th>
+                            <td>{{image.mediaCredits}}</td>
+                        </tr>
+                        <tr>
+                            <th>Copyright</th>
+                            <td>{{image.copyright}}</td>
+                        </tr>
+                        <tr>
+                            <th>Alternate text</th>
+                            <td>{{image.alternateText}}</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </li>

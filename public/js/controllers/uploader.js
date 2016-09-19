@@ -24,6 +24,15 @@ function UploaderController (Record, List, Artist, Exhibition, Image, $state, $s
         });
     };
 
+    self.updateImage = function(image, active) {
+        if (active != null) {
+            image.active = active;
+        } else {
+            self.imageToggleForm(image);
+        }
+        Image.update(image);
+    }
+
     self.deleteImage = function(image) {
         Image.delete({id: image._id});
         var index = self.records.single.files.indexOf(image);
