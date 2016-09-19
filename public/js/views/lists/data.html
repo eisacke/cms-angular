@@ -15,7 +15,7 @@
 		    <div class="form__field form__field--text" ng-show="lists.lists.single.items.length > 0">
 		        <label>List Items</label>
 		        <ul class="lists__list">
-		        	<li ng-repeat="item in lists.lists.single.items" class="lists__list-item" data-id="{{item._id}}">
+		        	<li ng-repeat="item in lists.lists.single.items | orderBy: 'rank'" class="lists__list-item" data-id="{{item._id}}" id="{{item._id}}">
 		        		<div class="lists__edit">
 			        		<a role="button" class="icon-edit" ng-click="lists.listItemToggleForm(item)"></a>
 			        		<a role="button" class="icon-tick" ng-click="lists.updateListItem(item)"></a>

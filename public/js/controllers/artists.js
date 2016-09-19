@@ -9,7 +9,9 @@ function ArtistsController (Artist, Record, $state, $stateParams, record, list, 
     var self = this;
 
     self.artists = artist;
-    self.newArtist = {};
+    self.newArtist = {
+        active: true
+    };
     self.artists.params = $stateParams.id;
 
     self.getArtist = function() {

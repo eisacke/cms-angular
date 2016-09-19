@@ -11,7 +11,8 @@ function RecordsController (Record, Artist, $state, $stateParams, record, list) 
     self.records = record;
     self.records.params = $stateParams.id;
     self.newRecord = {
-        type: "Item"
+        type: "Item",
+        active: true
     };
     self.records.state = $state;
 

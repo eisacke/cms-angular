@@ -16,7 +16,11 @@ function ListItem($resource) {
         'update':    { method: 'PUT' },
         'query':     { method: 'GET', isArray: true},
         'remove':    { method: 'DELETE' },
-        'delete':    { method: 'DELETE' }
+        'delete':    { method: 'DELETE' },
+        'saveOrder': { 
+            url: url + '/listItems/saveOrder',
+            method: 'POST' 
+        },
     });
     return ListItemResource;
 }

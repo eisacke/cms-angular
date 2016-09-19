@@ -9,8 +9,12 @@ function ListsController (Record, Artist, List, ListItem, $state, $stateParams, 
     self.lists = {};
     self.lists = list;
     self.lists.params = $stateParams.id;
-    self.listItem = {};
-    self.newList = {};
+    self.listItem = {
+        active: true
+    };
+    self.newList = {
+        active: true
+    };
     self.newListItem = {};
 
     self.artists = Artist.query();
@@ -75,5 +79,28 @@ function ListsController (Record, Artist, List, ListItem, $state, $stateParams, 
         var index = self.lists.single.items.indexOf(listItem);
         self.lists.single.items.splice(index, 1);
     }
+
+    function updateOrder() {
+        var data = $('.lists__list').sortable("toArray");
+        console.log(data);
+        ListItem.saveOrder({data: data});
+    }
+
+    function initSortable() {
+        $( ".lists__list" ).sortable({ 
+            placeholder: "ui-sortable-placeholder",
+            update: updateOrder,
+            cursor: 'pointer',
+            start: function(e, ui){
+                ui.placeholder.height(ui.item.outerHeight());
+            }
+        });
+    }
+
+    function init() { console.log('init');
+        initSortable();
+    }
+
+    init();
 
 }

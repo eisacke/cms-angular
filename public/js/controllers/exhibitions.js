@@ -7,7 +7,9 @@ function ExhibitionsController (Exhibition, Artist, List, ListItem, Record, $sta
 
     var self = this;
     self.exhibitions = exhibition;
-    self.newExhibition = {};
+    self.newExhibition = {
+        active: true
+    };
     self.exhibitions.params = $stateParams.id;
 
     // SERVICES

@@ -1417,4 +1417,11 @@ header .subtitle {
     border-color: #888785;
     color: #888785; }
 
+.ui-sortable-placeholder {
+  background-color: #f0f0f0;
+  border: 2px dotted #5a5953;
+  margin-bottom: 1px;
+  border-radius: 5px;
+  visibility: visible; }
+
 /*# sourceMappingURL=style.css.map */

@@ -60,4 +60,17 @@ router.delete('/:id', function(req, res){
   });
 });
 
+// SAVE ORDER
+router.post('/saveOrder', function(req, res) {
+  var data = req.body.data;
+  data.forEach(function(value, index) {
+    var id = value;
+    var rank = index;
+    ListItem.findByIdAndUpdate({_id: id}, { rank: rank }, function(error){
+      if(error) return res.status(403).send({message: 'Could not update listItem order b/c' + error});
+      return res.status(200);
+    });
+  });
+});
+
 module.exports = router

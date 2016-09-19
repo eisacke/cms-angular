@@ -556,3 +556,11 @@ header {
 		}
 	}
 }
+
+.ui-sortable-placeholder {
+	background-color: $lightest-gray;
+	border: 2px dotted $medium-gray;
+	margin-bottom: 1px;
+	border-radius: 5px;
+	visibility: visible;
+}
