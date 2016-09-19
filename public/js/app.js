@@ -237,8 +237,8 @@ function MainRouter($stateProvider, $urlRouterProvider) {
         .state('records.show.id.images', {
             url: '/images',
             templateUrl: "js/views/records/data/images.html",
-            controller: 'RecordsController',
-            controllerAs: 'records',
+            controller: 'UploaderController',
+            controllerAs: 'uploader',
         })
         .state('records.show.id.documents', {
             url: '/documents',

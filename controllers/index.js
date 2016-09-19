@@ -1,6 +1,7 @@
-var express     = require('express');
-var router      = express.Router();
+var express = require('express');
+var router = express.Router();
 
+router.use('/upload', require('./uploader'));
 router.use('/api/records', require('./records'));
 router.use('/api/artists', require('./artists'));
 router.use('/api/lists', require('./lists'));

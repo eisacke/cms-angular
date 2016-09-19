@@ -108,6 +108,7 @@ function ExhibitionsController (Exhibition, Artist, List, ListItem, Record, $sta
         placeholder: 'Select a role',
         searchField: "title",
         maxItems: 1,
+        sortField: 'rank',
         onItemAdd: function(value, $item) {
             self.newPerson.role = $item[0].innerText;
         }

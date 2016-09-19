@@ -68,7 +68,7 @@ function RecordsController (Record, Artist, $state, $stateParams, record, list) 
         placeholder: 'Select country',
         maxItems: 1,
         searchField: "title",
-        sortField: 'title'
+        sortField: 'rank'
     }
 
 }

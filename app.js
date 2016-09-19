@@ -3,6 +3,10 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+var path = require('path');
+var formidable = require('formidable');
+var fs = require('fs');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -10,7 +14,7 @@ var databaseURL = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/qi-angu
 mongoose.connect(databaseURL);
 
 app.set('views', './public');
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (error, request, response, next) {
   if (error.name === 'UnauthorizedError') {
