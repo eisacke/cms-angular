@@ -22,7 +22,7 @@
 		<ul class="sidebar__records">
 		  	<li ng-repeat="artist in sidebar.artists.all | filter:searchArtist as filtered" class="sidebar__records-record" ng-class="{active: sidebar.artists.params === artist._id}">
 		  		<div class="sidebar__records-record-edit">
-		  			<a role="button" class="icon-duplicate"></a>
+		  			<!-- <a role="button" class="icon-duplicate"></a> -->
 		  			<a role="button" class="icon-cross" ng-click="sidebar.deleteArtist(artist)"></a>
 		  			<a role="button" class="icon-power" ng-click="sidebar.updateArtist(artist, artist.active ? false : true)" ng-class="{'disabled': artist.active == false}"></a>
 		  		</div>

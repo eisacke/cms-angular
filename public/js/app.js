@@ -22,6 +22,18 @@ function MainRouter($stateProvider, $urlRouterProvider) {
             url: '/',
             templateUrl: "js/views/home/home.html"
         })
+        .state('content', {
+            url: '/content',
+            parent: 'index',
+            views: {
+                'sidebar': {
+                    templateUrl: "js/views/sidebar/content.html",
+                    controller: 'SidebarController',
+                    controllerAs: 'sidebar',
+                }
+            }
+        })
+        // LISTS
         .state('lists', {
             url: '/lists',
             parent: 'index',
@@ -31,11 +43,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                     controller: 'SidebarController',
                     controllerAs: 'sidebar',
                 },
-                'header': {
-                    templateUrl: "js/views/common/header.html",
-                    controller: 'ListsController',
-                    controllerAs: 'lists',
-                },
+                'header': { templateUrl: "js/views/common/header.html" },
                 'content': { templateUrl: "js/views/common/body.html" }
             }
         })
@@ -54,7 +62,6 @@ function MainRouter($stateProvider, $urlRouterProvider) {
         })
         .state('lists.show.id', {
             url: '/:id',
-            // abstract: true,
             views: {
                 'data@lists.show': {
                     templateUrl: "js/views/lists/data.html",
@@ -63,17 +70,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('content', {
-            url: '/content',
-            parent: 'index',
-            views: {
-                'sidebar': {
-                    templateUrl: "js/views/sidebar/content.html",
-                    controller: 'SidebarController',
-                    controllerAs: 'sidebar',
-                }
-            }
-        })
+        // ARTISTS
         .state('artists', {
             url: '/artists',
             parent: 'index',
@@ -83,11 +80,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                     controller: 'SidebarController',
                     controllerAs: 'sidebar',
                 },
-                'header': {
-                    templateUrl: "js/views/common/header.html",
-                    controller: 'ArtistsController',
-                    controllerAs: 'artists',
-                },
+                'header': { templateUrl: "js/views/common/header.html" },
                 'content': { templateUrl: "js/views/common/body.html" }
             }
         })
@@ -107,18 +100,12 @@ function MainRouter($stateProvider, $urlRouterProvider) {
         .state('artists.show.id', {
             url: '/:id',
             views: {
-                'data@artists.show': {
-                    templateUrl: "js/views/artists/data.html",
-                    controller: 'ArtistsController',
-                    controllerAs: 'artists',
-                }
+                'data@artists.show': { templateUrl: "js/views/artists/data.html" }
             }
         })
         .state('artists.show.id.content', {
             url: '/content',
             templateUrl: "js/views/artists/data/content.html",
-            controller: 'ArtistsController',
-            controllerAs: 'artists',
         })
         .state('artists.show.id.content.core', {
             url: '/core',
@@ -162,6 +149,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
             controller: 'ArtistsController',
             controllerAs: 'artists',
         })
+        // RECORDS
         .state('records', {
             url: '/records',
             parent: 'index',
@@ -171,11 +159,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                     controller: 'SidebarController',
                     controllerAs: 'sidebar',
                 },
-                'header': {
-                    templateUrl: "js/views/common/header.html",
-                    controller: 'RecordsController',
-                    controllerAs: 'records',
-                },
+                'header': { templateUrl: "js/views/common/header.html" },
                 'content': { templateUrl: "js/views/common/body.html" }
             }
         })
@@ -195,23 +179,12 @@ function MainRouter($stateProvider, $urlRouterProvider) {
         .state('records.show.id', {
             url: '/:id',
             views: {
-                'data@records.show': {
-                    templateUrl: "js/views/records/data.html",
-                    controller: 'RecordsController',
-                    controllerAs: 'records',
-                },
-                'relationships@records.show': {
-                    templateUrl: "js/views/records/relationships.html",
-                    controller: 'RecordsController',
-                    controllerAs: 'records',
-                }
+                'data@records.show': { templateUrl: "js/views/records/data.html" }
             }
         })
         .state('records.show.id.content', {
             url: '/content',
-            templateUrl: "js/views/records/data/content.html",
-            controller: 'RecordsController',
-            controllerAs: 'records',
+            templateUrl: "js/views/records/data/content.html"
         })
         .state('records.show.id.content.core', {
             url: '/core',
@@ -255,6 +228,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
             controller: 'RecordsController',
             controllerAs: 'records',
         })
+        // EXHIBITIONS
         .state('exhibitions', {
             url: '/exhibitions',
             parent: 'index',
@@ -264,11 +238,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                     controller: 'SidebarController',
                     controllerAs: 'sidebar',
                 },
-                'header': {
-                    templateUrl: "js/views/common/header.html",
-                    controller: 'ExhibitionsController',
-                    controllerAs: 'exhibitions',
-                },
+                'header': { templateUrl: "js/views/common/header.html" },
                 'content': { templateUrl: "js/views/common/body.html" }
             }
         })
@@ -288,18 +258,12 @@ function MainRouter($stateProvider, $urlRouterProvider) {
         .state('exhibitions.show.id', {
             url: '/:id',
             views: {
-                'data@exhibitions.show': {
-                    templateUrl: "js/views/exhibitions/data.html",
-                    controller: 'ExhibitionsController',
-                    controllerAs: 'exhibitions',
-                }
+                'data@exhibitions.show': { templateUrl: "js/views/exhibitions/data.html" }
             }
         })
         .state('exhibitions.show.id.content', {
             url: '/content',
-            templateUrl: "js/views/exhibitions/data/content.html",
-            controller: 'ExhibitionsController',
-            controllerAs: 'exhibitions',
+            templateUrl: "js/views/exhibitions/data/content.html"
         })
         .state('exhibitions.show.id.content.core', {
             url: '/core',

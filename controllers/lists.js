@@ -4,33 +4,14 @@ var router = express.Router();
 var List = require('../models/list');
 
 // INDEX
-// router.get('/', function(req, res){
-//   List.find(function(error, lists){
-//     if(error) return res.status(404).send({message: 'Could not find any lists'})
-//     return res.status(200).send(lists);
-//   });
-// });
-
 router.get('/', function(req, res){
-  List.find()
-  .populate('items')
-  .exec(function(error, lists){
+  List.find(function(error, lists){
     if(error) return res.status(404).send({message: 'Could not find any lists'})
     return res.status(200).send(lists);
-    var country = lists.where('title').equals('Country');
-    console.log('country', country);
-  })
+  });
 });
 
 // SHOW
-// router.get('/:id', function(req, res){
-//   var id = req.params.id;
-//   List.findById({_id: id}, function(error, list){
-//     if(error) return res.status(404).send({message: 'Could not find list'})
-//     return res.status(200).send(list);
-//   });
-// });
-
 router.get('/:id', function(req, res){
   List.findById({_id: req.params.id})
   .populate('items')

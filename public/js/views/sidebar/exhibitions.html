@@ -9,7 +9,7 @@
 		<ul class="sidebar__records">
 		  	<li ng-repeat="exhibition in sidebar.exhibitions.all" class="sidebar__records-record" ng-class="{active: sidebar.exhibitions.params === exhibition._id}">
 		  		<div class="sidebar__records-record-edit">
-		  			<a role="button" class="icon-duplicate"></a>
+		  			<!-- <a role="button" class="icon-duplicate"></a> -->
 		  			<a role="button" class="icon-cross" ng-click="sidebar.deleteExhibition(exhibition)"></a>
 		  			<a role="button" class="icon-power" ng-click="sidebar.updateExhibition(exhibition, exhibition.active ? false : true)" ng-class="{'disabled': exhibition.active == false}"></a>
 		  		</div>
