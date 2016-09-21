@@ -5,7 +5,9 @@ var List = require('../models/list');
 
 // INDEX
 router.get('/', function(req, res){
-  List.find(function(error, lists){
+  List.find()
+  .populate('items')
+  .exec(function(error, lists){
     if(error) return res.status(404).send({message: 'Could not find any lists'})
     return res.status(200).send(lists);
   });
